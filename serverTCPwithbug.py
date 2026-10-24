@@ -16,6 +16,7 @@ def start_server():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
         # Allow immediate port reuse after restart
         server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        server_socket.bind(('',PORT))
         server_socket.listen()
         
         print(f"Server listening on {HOST}:{PORT}...")

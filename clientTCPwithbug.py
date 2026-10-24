@@ -9,6 +9,7 @@ PORT = 65432
 def start_client(file_size):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
         
+        client_socket.connect(('',PORT))
         # Format the request according to the protocol
         request = f"SIZE:{file_size}\n".encode('ascii')
         
